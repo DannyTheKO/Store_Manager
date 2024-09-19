@@ -5,20 +5,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>Program</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger">
             </div>
             <div class="form-group">
-                <input type="number" name="Id" placeholder="ID" />
-                <input type="text" name="NameProduct" placeholder="Name Product" />
-                <input type="number" name="Price" placeholder="Price" />
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">ID</span>
+                    </div>
+                    <input type="number" name="Id" class="form-control" placeholder="Enter ID" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Name Product</span>
+                    </div>
+                    <input type="text" name="NameProduct" class="form-control" placeholder="Enter Name Product" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Price</span>
+                    </div>
+                    <input type="number" name="Price" class="form-control" placeholder="Enter Price" />
+                </div>
+                <input type="submit" value="Create" class="btn btn-primary mt-3" />
             </div>
         </form>
     </div>

@@ -10,7 +10,7 @@ namespace Store_Manager.Controllers
         public IActionResult Index()
         {
 
-            return RedirectToAction("ShowAll", "Product");
+            return View();
         }
 
         // Starting DB
