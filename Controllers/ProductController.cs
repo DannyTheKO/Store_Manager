@@ -9,9 +9,11 @@ namespace Store_Manager.Controllers
 
         public IActionResult Index()
         {
+
             return RedirectToAction("ShowAll", "Product");
         }
 
+        // Starting DB
         public IActionResult ShowAll()
         {
             ViewData["Heading"] = "Product Management";
@@ -23,6 +25,21 @@ namespace Store_Manager.Controllers
 
             return View(products);
         }
+
+        // Create
+
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+
+        [HttpPost]
+        public IActionResult Create([Bind("Id", "ProductName", "Price")] Product product)
+        {
+            products.Add(product);
+            return RedirectToAction("ShowAll");
+        }
+
 
     }
 }
