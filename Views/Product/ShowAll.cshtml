@@ -1,41 +1,47 @@
-﻿@model List<Store_Manager.Models.Product>
+﻿@model IEnumerable<Store_Manager.Models.Product>
 
 @{
-    ViewBag.Title = "Show List Product";
+    ViewData["Title"] = "Show All Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewBag.Title</h1>
+<h1>@ViewData["Title"]</h1>
 
-<table border="1" class="table">
-    <tr class="align-content-center">
-        <td>ID</td>
-        <td class="table w-50">Name</td>
-        <td>Price</td>
-        <td>Action</td>
-    </tr>
-
-    @foreach(var p in Model)
-    {
-    <tr>
-        <td>@p.Id</td>
-        <td>@p.ProductName</td>
-        <td>@p.Price</td>
-        <td>
-            <a asp-controller="Product" asp-action="Edit" asp-route-id="@p.Id" class="btn btn-warning">Edit</a>
-            <a asp-controller="Product" asp-action="Delete" asp-route-id="@p.Id" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
-    }
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
 </table>
-
-<div>
-    @* <a asp-controller="Product" asp-action="ShowAll" class="btn btn-dark">
-        
-    </a>
- *@
-    <a asp-controller="Product" asp-action="Create" class="btn btn-success">
-        Create
-    </a>
-
-</div>
