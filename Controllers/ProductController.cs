@@ -9,7 +9,13 @@ namespace Store_Manager.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Heading"] = "All Product";
+            return RedirectToAction("ShowAll", "Product");
+        }
+
+        public IActionResult ShowAll()
+        {
+            ViewData["Heading"] = "Product Management";
+         
             var products = new List<Product>();
             products.Add(new Product { Id = 101, Price = 99000, ProductName = "IOS" });
             products.Add(new Product { Id = 102, Price = 99000, ProductName = "Android" });
@@ -17,7 +23,6 @@ namespace Store_Manager.Controllers
 
             return View(products);
         }
-
 
     }
 }
