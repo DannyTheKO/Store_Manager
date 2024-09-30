@@ -5,19 +5,6 @@ namespace Store_Manager.Controllers
 {
     public class ProductController : Controller
     {
-        // Starting DB
-        //public IActionResult ShowAll()
-        //{
-        //    ViewData["Heading"] = "Product Management";
-
-        //    var products = new List<Product>();
-        //    products.Add(new Product { Id = 101, Price = 99000, ProductName = "IOS" });
-        //    products.Add(new Product { Id = 102, Price = 99000, ProductName = "Android" });
-        //    products.Add(new Product { Id = 103, Price = 99000, ProductName = "Windows" });
-
-        //    return View(products);
-        //}
-
         // Create a product array list
         static List<Product> products = new List<Product>
         {

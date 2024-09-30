@@ -1,28 +1,39 @@
-﻿@model Program
+﻿@model Store_Manager.Models.Product
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>Create</h1>
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group my-2">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input class="w-100 m-2 p-2" type="number" placeholder="Id" name="Id" />
-                <input class="w-100 m-2 p-2" type="text" placeholder="Name" name="ProductName" />
-                <input class="w-100 m-2 p-2" type="number" placeholder="Price" name="Price" />
-                <input class="btn btn-primary mt-3"  type="submit" placeholder="Create" />
+            <div class="form-group my-2">
+                <label asp-for="ProductName" class="control-label">Name</label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group btn-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="ShowAll" class="btn btn-info m-1 w-10">Back to List</a>
-</div>
-
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
